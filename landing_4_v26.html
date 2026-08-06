@@ -207,12 +207,32 @@
   }
   .product-card .desc{
     position:relative; font-size:12.5px; color:rgba(255,255,255,0.85); margin-top:6px; line-height:1.5;
-    min-height:4.5em;
+    max-height:4.5em;
+    overflow:hidden;
+    transition:max-height .3s ease;
   }
+  .product-card .desc.expanded{
+    max-height:none;
+  }
+  .product-cta-row{
+    display:flex; align-items:center; gap:8px; margin-top:14px;
+  }
+  .product-more{
+    position:relative;
+    display:inline-flex; align-items:center; justify-content:center;
+    width:38px; height:38px;
+    background:rgba(249,241,234,0.15);
+    border:1px solid rgba(249,241,234,0.4);
+    color:#fff;
+    font-size:16px; font-weight:600;
+    border-radius:50%;
+    cursor:pointer;
+    transition:background .2s;
+  }
+  .product-more:hover{background:rgba(249,241,234,0.3);}
   .product-cta{
     position:relative;
     display:inline-flex; align-items:center; gap:6px;
-    margin-top:14px;
     padding:9px 16px;
     min-height:38px;
     background:rgba(249,241,234,0.95);
@@ -258,27 +278,35 @@
   /* AGENDAMENTO */
   .book{background:var(--light-taupe);}
   .book-inner{
-    display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;
+    display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;
   }
   .book h2{font-size:clamp(28px,3.4vw,34px);}
   .book p.lead{color:var(--taupe); margin-top:14px; max-width:440px;}
   .whatsapp-box{
-    background:var(--cream); border:1px solid var(--border); border-radius:6px; padding:32px; margin-top:28px;
+    background:var(--cream); border:1px solid var(--border); border-radius:6px; padding:32px; margin-top:20px;
   }
-  .whatsapp-box .row{display:flex; align-items:center; gap:14px; margin-bottom:18px;}
-  .whatsapp-icon{
-    width:44px; height:44px; border-radius:50%; background:#25D366; color:white;
-    display:flex; align-items:center; justify-content:center; font-size:20px; flex:none;
-  }
-  .whatsapp-box .row div .l{font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:600;}
-  .whatsapp-box .row div .n{font-family:'Literata',serif; font-size:19px; color:var(--deep-green);}
-  .steps{list-style:none; margin-top:8px;}
+  .whatsapp-hours{text-align:center; font-size:12.5px; color:var(--taupe); margin-top:14px;}
+  .steps{list-style:none; margin-top:8px; position:relative;}
   .steps li{
-    display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--border); font-size:15px; color:var(--taupe);
+    display:flex; gap:16px; padding:0 0 28px; font-size:14.5px; color:rgba(30,40,32,0.78);
+    position:relative;
   }
-  .steps li:first-child{border-top:none;}
+  .steps li:last-child{padding-bottom:0;}
   .steps .n{
-    font-family:'Literata',serif; color:var(--gold); font-weight:600; flex:none; width:24px;
+    font-family:'Literata',serif; color:var(--gold); font-weight:600; flex:none;
+    width:32px; height:32px; border-radius:50%; border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; font-size:13px;
+    position:relative; z-index:1; background:var(--light-taupe);
+  }
+  .steps li:not(:last-child)::before{
+    content:"";
+    position:absolute;
+    left:15px; top:32px; bottom:0;
+    width:1px;
+    background:var(--border);
+  }
+  .steps li strong{
+    display:block; color:var(--deep-green); margin-bottom:4px; font-size:15px;
   }
 
   /* FOOTER / CONTATO */
@@ -442,10 +470,13 @@
       <h2>O primeiro passo é entender</h2>
     </div>
     <div class="consulta-text">
-      <p>Antes de escolher um procedimento ou indicar um produto, eu preciso entender a sua pele. A Consulta Integrativa é o ponto de partida para um cuidado realmente personalizado.</p>
-      <p>Através de uma avaliação individualizada, busco compreender sua pele de forma ampla, considerando seu histórico, sua rotina, seus hábitos e tudo aquilo que pode influenciar o seu equilíbrio.</p>
-      <p>A partir desse olhar, construo para você um plano de cuidados personalizado, com orientações de Home Care e estratégias de tratamento que façam sentido para a sua pele, para a sua rotina e para o momento que você está vivendo.</p>
-      <p>Porque não acredito em fórmulas prontas. <strong>Acredito em escolhas conscientes, feitas para você e para a sua pele.</strong></p>
+      <p>Antes de escolher um procedimento ou indicar um produto, eu preciso entender a sua pele. A Consulta Integrativa é o ponto de partida — a porta de entrada para um cuidado verdadeiramente personalizado.</p>
+      <p>Por meio de uma avaliação individualizada, busco compreender sua pele de forma ampla, considerando seu histórico, sua rotina, seus hábitos e todos os fatores que podem influenciar o seu equilíbrio.</p>
+      <p>É a partir dessa compreensão que identifico o melhor caminho para você, seja para tratar queixas como acne, melasma, manchas, rosácea, dermatites, cicatrizes de acne e sinais do envelhecimento, ou para desenvolver uma rotina de cuidado contínuo e prevenção, preservando a saúde e o equilíbrio da sua pele.</p>
+      <p>Com esse olhar, desenvolvo um plano de cuidados personalizado, que pode incluir skincare personalizado e procedimentos em consultório, sempre respeitando as necessidades da sua pele, a sua rotina e o momento que você está vivendo.</p>
+      <p>Mais do que cuidar da sua pele, quero ajudar você a compreendê-la e construir uma relação mais consciente com o autocuidado.</p>
+      <p>Será um prazer acompanhar você nessa jornada de cuidado, equilíbrio e bem-estar.</p>
+      <p>Meu compromisso é caminhar ao seu lado, adaptando cada cuidado às necessidades da sua pele em cada fase da sua vida.</p>
     </div>
     <div class="consulta-steps">
       <div class="consulta-step">
@@ -514,101 +545,134 @@
       <div class="product-card" style="background-image:url('assets/produtos/almofada-terapeutica.jpg')">
         <span class="num">01</span>
         <div class="name">Almofada terapêutica</div>
-        <div class="desc">Mais do que uma almofada, um convite para desacelerar. Auxilia no alívio da tensão ocular, do cansaço visual e das dores de cabeça causadas pelo estresse e pelo excesso de telas.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Almofada%20terap%C3%AAutica." target="_blank" rel="noopener" aria-label="Perguntar sobre Almofada terapêutica no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-01">Mais do que uma almofada, um convite para desacelerar. Auxilia no alívio da tensão ocular, do cansaço visual e das dores de cabeça causadas pelo estresse e pelo excesso de telas.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Almofada%20terap%C3%AAutica." target="_blank" rel="noopener" aria-label="Perguntar sobre Almofada terapêutica no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-01').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/escalda-pes.jpg')">
         <span class="num">02</span>
         <div class="name">Escalda-pés</div>
-        <div class="desc">Um ritual de autocuidado para os pés que ajuda a aliviar as tensões, reduzir o cansaço, promover relaxamento e proporcionar uma agradável sensação de bem-estar para todo o corpo.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Escalda-p%C3%A9s." target="_blank" rel="noopener" aria-label="Perguntar sobre Escalda-pés no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-02">Um ritual de autocuidado para os pés que ajuda a aliviar as tensões, reduzir o cansaço, promover relaxamento e proporcionar uma agradável sensação de bem-estar para todo o corpo.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Escalda-p%C3%A9s." target="_blank" rel="noopener" aria-label="Perguntar sobre Escalda-pés no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-02').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/creme-corporal.jpg')">
         <span class="num">03</span>
         <div class="name">Creme corporal</div>
-        <div class="desc">Hidrata profundamente, melhora a elasticidade e fortalece a barreira de proteção da pele, deixando-a nutrida, macia e confortável todos os dias.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Creme%20corporal." target="_blank" rel="noopener" aria-label="Perguntar sobre Creme corporal no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-03">Hidrata profundamente, melhora a elasticidade e fortalece a barreira de proteção da pele, deixando-a nutrida, macia e confortável todos os dias.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Creme%20corporal." target="_blank" rel="noopener" aria-label="Perguntar sobre Creme corporal no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-03').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/lip-care.jpg')">
         <span class="num">04</span>
         <div class="name">Lip Care</div>
-        <div class="desc">Muito mais do que hidratação. Um tratamento completo que restaura a saúde dos lábios, promovendo hidratação profunda, regeneração, reparação, nutrição e proteção — em todas as estações do ano.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Lip%20Care." target="_blank" rel="noopener" aria-label="Perguntar sobre Lip Care no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-04">Muito mais do que hidratação. Um tratamento completo que restaura a saúde dos lábios, promovendo hidratação profunda, regeneração, reparação, nutrição e proteção — em todas as estações do ano.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Lip%20Care." target="_blank" rel="noopener" aria-label="Perguntar sobre Lip Care no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-04').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/cleansing-oil.jpg')">
         <span class="num">05</span>
         <div class="name">Cleanser Oil</div>
-        <div class="desc">Um óleo de limpeza que remove maquiagem, protetor solar e impurezas sem agredir a pele. Preserva sua barreira de proteção e proporciona uma limpeza profunda, delicada e eficaz.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Cleanser%20Oil." target="_blank" rel="noopener" aria-label="Perguntar sobre Cleanser Oil no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-05">Um óleo de limpeza que remove maquiagem, protetor solar e impurezas sem agredir a pele. Preserva sua barreira de proteção e proporciona uma limpeza profunda, delicada e eficaz.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Cleanser%20Oil." target="_blank" rel="noopener" aria-label="Perguntar sobre Cleanser Oil no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-05').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/agua-dermatologica.jpg')">
         <span class="num">06</span>
         <div class="name">Água dermatológica</div>
-        <div class="desc">Refresca, hidrata, acalma e auxilia no equilíbrio da pele, reduzindo a sensação de sensibilidade e proporcionando conforto imediato ao longo do dia.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20%C3%81gua%20dermatol%C3%B3gica." target="_blank" rel="noopener" aria-label="Perguntar sobre Água dermatológica no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-06">Refresca, hidrata, acalma e auxilia no equilíbrio da pele, reduzindo a sensação de sensibilidade e proporcionando conforto imediato ao longo do dia.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20%C3%81gua%20dermatol%C3%B3gica." target="_blank" rel="noopener" aria-label="Perguntar sobre Água dermatológica no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-06').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/mascara-facial.jpg')">
         <span class="num">07</span>
         <div class="name">Máscara facial</div>
-        <div class="desc">Um ritual de autocuidado que potencializa a sua rotina de skincare. Temos versões hidratante, nutritiva, revitalizante e detoxificante — me chame que te ajudo a escolher a ideal pra sua pele.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20as%20op%C3%A7%C3%B5es%20de%20M%C3%A1scara%20facial." target="_blank" rel="noopener" aria-label="Ver opções de Máscara facial no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Ver opções
-        </a>
+        <div class="desc" id="desc-07">Um ritual de autocuidado que potencializa a sua rotina de skincare. Temos versões hidratante, nutritiva, revitalizante e detoxificante — me chame que te ajudo a escolher a ideal pra sua pele.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20as%20op%C3%A7%C3%B5es%20de%20M%C3%A1scara%20facial." target="_blank" rel="noopener" aria-label="Ver opções de Máscara facial no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Ver opções
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-07').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/blend-aromaterapia.jpg')">
         <span class="num">08</span>
         <div class="name">Blend de Aromaterapia</div>
-        <div class="desc">Uma linha de blends com óleos essenciais para diferentes necessidades do seu dia — relaxamento, sono, concentração, equilíbrio e disposição.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20Blends%20de%20Aromaterapia." target="_blank" rel="noopener" aria-label="Ver opções de Blend de Aromaterapia no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Ver opções
-        </a>
+        <div class="desc" id="desc-08">Uma linha de blends com óleos essenciais para diferentes necessidades do seu dia — relaxamento, sono, concentração, equilíbrio e disposição.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20Blends%20de%20Aromaterapia." target="_blank" rel="noopener" aria-label="Ver opções de Blend de Aromaterapia no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Ver opções
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-08').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/creme-maos-pes.jpg')">
         <span class="num">09</span>
         <div class="name">Creme para Mãos e Pés</div>
-        <div class="desc">Nutrição intensiva para as áreas mais ressecadas, ajudando a restaurar a barreira cutânea, melhorar a maciez e manter a pele hidratada por mais tempo.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Creme%20para%20M%C3%A3os%20e%20P%C3%A9s." target="_blank" rel="noopener" aria-label="Perguntar sobre Creme para Mãos e Pés no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-09">Nutrição intensiva para as áreas mais ressecadas, ajudando a restaurar a barreira cutânea, melhorar a maciez e manter a pele hidratada por mais tempo.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Creme%20para%20M%C3%A3os%20e%20P%C3%A9s." target="_blank" rel="noopener" aria-label="Perguntar sobre Creme para Mãos e Pés no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-09').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/kit-intimo.jpg')">
         <span class="num">10</span>
         <div class="name">Kit Íntimo</div>
-        <div class="desc">Sabonete + Hidratante Íntimo. Cuidado diário formulado com probióticos, barbatimão, melaleuca, calêndula e camomila — respeita a fisiologia da região íntima e preserva a barreira natural da pele.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Kit%20%C3%8Dntimo." target="_blank" rel="noopener" aria-label="Perguntar sobre Kit Íntimo no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-10">Sabonete + Hidratante Íntimo. Cuidado diário formulado com probióticos, barbatimão, melaleuca, calêndula e camomila — respeita a fisiologia da região íntima e preserva a barreira natural da pele.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Kit%20%C3%8Dntimo." target="_blank" rel="noopener" aria-label="Perguntar sobre Kit Íntimo no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-10').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/escova-facial.jpg')">
         <span class="num">11</span>
         <div class="name">Escova Facial</div>
-        <div class="desc">Madeira rosé com cerdas naturais ultramacias — potencializa a absorção dos ativos e promove uma microestimulação suave. Design ergonômico que se adapta aos contornos do rosto.</div>
-        <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Escova%20Facial." target="_blank" rel="noopener" aria-label="Perguntar sobre Escova Facial no WhatsApp">
-          <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
-          Perguntar
-        </a>
+        <div class="desc" id="desc-11">Madeira rosé com cerdas naturais ultramacias — potencializa a absorção dos ativos e promove uma microestimulação suave. Design ergonômico que se adapta aos contornos do rosto.</div>
+        <div class="product-cta-row">
+          <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Escova%20Facial." target="_blank" rel="noopener" aria-label="Perguntar sobre Escova Facial no WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
+            Perguntar
+          </a>
+          <button class="product-more" onclick="document.getElementById('desc-11').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+        </div>
       </div>
     </div>
   </div>
@@ -623,7 +687,7 @@
         <p>Acredito que a beleza vai muito além da pele. Ela está na pausa, no acolhimento, no conhecimento compartilhado e nas conexões que construímos ao longo do caminho.</p>
         <p>Foi desse propósito que nasceu o Café da Beleza e Bem-Estar: uma experiência criada para inspirar uma forma mais consciente de cuidar de si.</p>
         <p>Um encontro para aprender mais sobre a sua pele, desacelerar a rotina, compartilhar experiências e se reconectar com você mesma.</p>
-        <a href="#agendar" class="cafe-cta">Quero participar do próximo</a>
+        <a href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20participar%20do%20pr%C3%B3ximo%20Caf%C3%A9%20da%20Beleza%20e%20Bem-Estar." class="cafe-cta" target="_blank" rel="noopener">Quero participar do próximo</a>
       </div>
       <div class="cafe-video">
         <iframe
@@ -640,27 +704,21 @@
 <section class="book" id="agendar">
   <div class="wrap book-inner">
     <div>
-      <span class="eyebrow">Agendamento</span>
-      <h2>Vamos começar seu plano de cuidados</h2>
-      <p class="lead">Fale comigo pelo WhatsApp — respondo rápido e já indico o melhor horário para sua consulta.</p>
+      <span class="eyebrow">Seu cuidado começa aqui</span>
+      <h2>Vamos entender o que sua pele precisa?</h2>
+      <p class="lead">Cada pele tem uma história, uma rotina e necessidades diferentes. Me chame no WhatsApp, conte o que você está buscando, e juntas encontramos o melhor caminho para o seu cuidado.</p>
       <div class="whatsapp-box">
-        <div class="row">
-          <div class="whatsapp-icon">✆</div>
-          <div>
-            <div class="l">WhatsApp</div>
-            <div class="n">(16) 99405-3693</div>
-          </div>
-        </div>
-        <a href="https://wa.me/5516994053693" class="btn-primary" style="width:100%; justify-content:center;">Agendar minha consulta ↗</a>
-        <p class="whatsapp-hours">Atendimento: Seg a Sáb, 9h às 19h</p>
+        <a class="btn-primary" style="width:100%; justify-content:center;" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20come%C3%A7ar%20meu%20cuidado%20com%20a%20Consulta%20Integrativa." target="_blank" rel="noopener">
+          Quero começar meu cuidado ↗
+        </a>
+        <div class="whatsapp-hours">Atendimento de terça a sábado.</div>
       </div>
     </div>
     <div>
       <ol class="steps">
-        <li><span class="n">01</span> Você chama no WhatsApp e conta o que procura.</li>
-        <li><span class="n">02</span> Marco sua consulta estética personalizada.</li>
-        <li><span class="n">03</span> Você recebe seu plano de cuidados e produtos indicados.</li>
-        <li><span class="n">04</span> Acompanho seu retorno e evolução.</li>
+        <li><span class="n">01</span> <div><strong>Você me conta o que está buscando.</strong> Conversamos sobre sua pele, sua rotina e o que deseja cuidar.</div></li>
+        <li><span class="n">02</span> <div><strong>Agendamos sua Consulta Integrativa.</strong> É nela que entendo sua pele e definimos juntas o melhor caminho.</div></li>
+        <li><span class="n">03</span> <div><strong>Seu cuidado é personalizado.</strong> Você recebe orientações e recomendações de tratamentos e produtos de acordo com as necessidades da sua pele.</div></li>
       </ol>
     </div>
   </div>
