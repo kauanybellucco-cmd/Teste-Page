@@ -9,9 +9,9 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Kauany Bellucco — Estética e Cosmetologia Integrativa">
 <meta property="og:description" content="Consultas estéticas personalizadas, rituais de bem-estar e uma linha própria de produtos em Ribeirão Preto - SP. Agende pelo WhatsApp.">
-<meta property="og:image" content="assets/logo-full-transparent.png">
+<meta property="og:image" content="../assets/logo-full-transparent.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/logo-mark-transparent.png">
+<link rel="icon" type="image/png" href="../assets/logo-mark-transparent.png">
 <!--
   Meta Pixel (Facebook/Instagram Ads): só adicionar se for rodar anúncios impulsionados.
   Pegue o snippet completo em business.facebook.com/events_manager (Fontes de dados > seu Pixel > Configurar)
@@ -174,7 +174,28 @@
   .service-tag{font-size:12px; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; color:var(--gold); margin-bottom:14px; display:block;}
   .service-card h3{font-size:18px; margin-bottom:10px; color:var(--deep-green); letter-spacing:0.3px; line-height:1.3;}
   .service-card p{font-size:14px; color:var(--taupe); line-height:1.6;}
-
+  .treatment-for{font-size:13px; color:var(--taupe); margin-top:12px; line-height:1.6;}
+  .treatment-for strong{color:var(--deep-green); font-weight:600;}
+  .treatment-techniques{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px solid var(--border);
+  }
+  .treatment-techniques .label{
+    font-size:11px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--gold); font-weight:600; margin-bottom:6px; display:block;
+  }
+  .treatment-techniques ul{
+    list-style:none; padding:0; margin:0;
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .treatment-techniques ul li{
+    font-size:12px; color:var(--deep-green); line-height:1.4;
+    background:var(--light-taupe);
+    border:1px solid var(--border);
+    padding:5px 10px;
+    border-radius:100px;
+  }
   /* PRODUTOS */
   .products .section-head p{max-width:520px; margin-left:auto; margin-right:auto;}
   .product-grid{
@@ -282,10 +303,10 @@
   .book-inner{
     display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;
   }
-  .book h2{font-size:clamp(28px,3.4vw,34px);}
+  .book h2{font-size:clamp(26px,3.2vw,36px); max-width:480px;}
   .book p.lead{color:var(--taupe); margin-top:14px; max-width:440px;}
   .whatsapp-box{
-    background:var(--cream); border:1px solid var(--border); border-radius:6px; padding:32px; margin-top:20px;
+    background:var(--cream); border:1px solid var(--border); border-radius:6px; padding:28px 32px 24px; margin-top:20px;
   }
   .whatsapp-hours{text-align:center; font-size:12.5px; color:var(--taupe); margin-top:14px;}
   .steps{list-style:none; margin-top:8px; position:relative;}
@@ -419,7 +440,7 @@
 <header>
   <nav>
     <div class="brand">
-      <img src="assets/logo-mark-transparent.png" alt="Kauany Bellucco">
+      <img src="../assets/logo-mark-transparent.png" alt="Kauany Bellucco">
       Kauany Bellucco
     </div>
     <div class="nav-links" id="navLinks">
@@ -441,7 +462,7 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <img src="assets/logo-mark-transparent.png" alt="" class="hero-logo">
+    <img src="../assets/logo-mark-transparent.png" alt="" class="hero-logo">
     <span class="eyebrow">Estética e Cosmetologia Integrativa</span>
     <h1>Cuidar da pele é olhar para você por inteiro.</h1>
     <p class="lead">Sua pele fala mais do que mostra o espelho. Meu trabalho é ouvir, entender e cuidar de você de forma personalizada.</p>
@@ -454,7 +475,7 @@
 
 <section class="about" id="sobre">
   <div class="wrap about-grid">
-    <div class="about-photo"><img src="assets/kauany-sobre.jpg" alt="Kauany Bellucco"></div>
+    <div class="about-photo"><img src="../assets/kauany-sobre.jpg" alt="Kauany Bellucco"></div>
     <div class="about-text">
       <span class="eyebrow">Quem sou</span>
       <h2 style="margin-bottom:20px;">Sempre acreditei que cuidar da pele é também cuidar da forma como nos sentimos</h2>
@@ -516,21 +537,64 @@
       <p>Terapias pensadas para acompanhar o cuidado com a pele — para o corpo relaxar tanto quanto ele recebe atenção.</p>
     </div>
     <div class="service-grid">
+
       <div class="service-card">
         <span class="service-tag">Bem-estar</span>
         <h3>Realinhamento Cutâneo</h3>
-        <p>Um tratamento terapêutico e bioenergético que integra pele, corpo e mente — cuidado profundo para quem sente que precisa de atenção.</p>
+        <p>Um tratamento terapêutico e bioenergético que devolve equilíbrio, leveza e vitalidade para sua pele e para o seu corpo.</p>
+        <div class="treatment-for"><strong>Para quem:</strong> sofre com bruxismo, cefaleias tensionais, deseja aliviar tensões, melhorar a qualidade do sono, reduzir o estresse, revitalizar a pele e promover um reequilíbrio integral.</div>
+        <div class="treatment-techniques">
+          <span class="label">A experiência combina</span>
+          <ul>
+            <li>Massagem Intraoral</li>
+            <li>Massagem Terapêutica Integrativa</li>
+            <li>Guashaterapia</li>
+            <li>Cristais terapêuticos</li>
+            <li>Neurocosméticos</li>
+            <li>Alongamentos terapêuticos</li>
+            <li>Stiperterapia Auricular</li>
+            <li>Aromaterapia e respiração consciente</li>
+            <li>Escalda-pés relaxante</li>
+          </ul>
+        </div>
       </div>
+
       <div class="service-card">
         <span class="service-tag">Bem-estar</span>
-        <h3>Face Lift Yoga Spa</h3>
-        <p>Um ritual que desacelera, alivia tensões do rosto e restaura a vitalidade da pele de forma natural e profunda.</p>
+        <h3>Face Lift Yoga Spa Terapêutico</h3>
+        <p>Uma experiência para quem busca um cuidado profundo e integrativo, unindo relaxamento e vitalidade para o rosto.</p>
+        <div class="treatment-for"><strong>Para quem:</strong> deseja desacelerar a mente, liberar tensões faciais e emocionais, estimular a firmeza, o viço e a vitalidade da pele, além de vivenciar um momento de presença e autocuidado.</div>
+        <div class="treatment-techniques">
+          <span class="label">A experiência combina</span>
+          <ul>
+            <li>Escalda-pés terapêutico</li>
+            <li>Aromaterapia e respiração consciente</li>
+            <li>Massagem facial manual</li>
+            <li>Guashaterapia facial</li>
+            <li>Massagem intraoral</li>
+            <li>Face Lift Yoga com faixa facial</li>
+            <li>Nutrição facial personalizada</li>
+          </ul>
+        </div>
       </div>
+
       <div class="service-card">
         <span class="service-tag">Bem-estar</span>
         <h3>Spa Terapêutico dos Pés</h3>
-        <p>Um ritual de escalda-pés, cristaloterapia e massagem — pausa para desacelerar e cuidar do corpo e da mente.</p>
+        <p>Um momento de pausa para desacelerar, relaxar e cuidar de você.</p>
+        <div class="treatment-for"><strong>Para quem:</strong> deseja reduzir o estresse do dia a dia, aliviar a sensação de pés e pernas cansados, cuidar da saúde da pele e viver uma experiência de relaxamento profundo, promovendo equilíbrio, conforto e bem-estar.</div>
+        <div class="treatment-techniques">
+          <span class="label">A experiência combina</span>
+          <ul>
+            <li>Escalda-pés aromático</li>
+            <li>Cristaloterapia</li>
+            <li>Esfoliação dos pés</li>
+            <li>Massagem terapêutica nos pés</li>
+            <li>Massagem na região do trapézio</li>
+          </ul>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -544,7 +608,7 @@
     </div>
 
     <div class="product-grid">
-      <div class="product-card" style="background-image:url('assets/produtos/almofada-terapeutica.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/almofada-terapeutica.jpg')">
         <span class="num">01</span>
         <div class="name">Almofada terapêutica</div>
         <div class="desc" id="desc-01">Mais do que uma almofada, um convite para desacelerar. Auxilia no alívio da tensão ocular, do cansaço visual e das dores de cabeça causadas pelo estresse e pelo excesso de telas.</div>
@@ -556,7 +620,7 @@
           <button class="product-more" onclick="document.getElementById('desc-01').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/escalda-pes.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/escalda-pes.jpg')">
         <span class="num">02</span>
         <div class="name">Escalda-pés</div>
         <div class="desc" id="desc-02">Um ritual de autocuidado para os pés que ajuda a aliviar as tensões, reduzir o cansaço, promover relaxamento e proporcionar uma agradável sensação de bem-estar para todo o corpo.</div>
@@ -568,7 +632,7 @@
           <button class="product-more" onclick="document.getElementById('desc-02').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/creme-corporal.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/creme-corporal.jpg')">
         <span class="num">03</span>
         <div class="name">Creme corporal</div>
         <div class="desc" id="desc-03">Hidrata profundamente, melhora a elasticidade e fortalece a barreira de proteção da pele, deixando-a nutrida, macia e confortável todos os dias.</div>
@@ -580,7 +644,7 @@
           <button class="product-more" onclick="document.getElementById('desc-03').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/lip-care.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/lip-care.jpg')">
         <span class="num">04</span>
         <div class="name">Lip Care</div>
         <div class="desc" id="desc-04">Muito mais do que hidratação. Um tratamento completo que restaura a saúde dos lábios, promovendo hidratação profunda, regeneração, reparação, nutrição e proteção — em todas as estações do ano.</div>
@@ -592,7 +656,7 @@
           <button class="product-more" onclick="document.getElementById('desc-04').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/cleansing-oil.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/cleansing-oil.jpg')">
         <span class="num">05</span>
         <div class="name">Cleanser Oil</div>
         <div class="desc" id="desc-05">Um óleo de limpeza que remove maquiagem, protetor solar e impurezas sem agredir a pele. Preserva sua barreira de proteção e proporciona uma limpeza profunda, delicada e eficaz.</div>
@@ -604,7 +668,7 @@
           <button class="product-more" onclick="document.getElementById('desc-05').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/agua-dermatologica.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/agua-dermatologica.jpg')">
         <span class="num">06</span>
         <div class="name">Água dermatológica</div>
         <div class="desc" id="desc-06">Refresca, hidrata, acalma e auxilia no equilíbrio da pele, reduzindo a sensação de sensibilidade e proporcionando conforto imediato ao longo do dia.</div>
@@ -616,7 +680,7 @@
           <button class="product-more" onclick="document.getElementById('desc-06').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/mascara-facial.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/mascara-facial.jpg')">
         <span class="num">07</span>
         <div class="name">Máscara facial</div>
         <div class="desc" id="desc-07">Um ritual de autocuidado que potencializa a sua rotina de skincare. Temos versões hidratante, nutritiva, revitalizante e detoxificante — me chame que te ajudo a escolher a ideal pra sua pele.</div>
@@ -628,7 +692,7 @@
           <button class="product-more" onclick="document.getElementById('desc-07').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/blend-aromaterapia.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/blend-aromaterapia.jpg')">
         <span class="num">08</span>
         <div class="name">Blend de Aromaterapia</div>
         <div class="desc" id="desc-08">Uma linha de blends com óleos essenciais para diferentes necessidades do seu dia — relaxamento, sono, concentração, equilíbrio e disposição.</div>
@@ -640,7 +704,7 @@
           <button class="product-more" onclick="document.getElementById('desc-08').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/creme-maos-pes.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/creme-maos-pes.jpg')">
         <span class="num">09</span>
         <div class="name">Creme para Mãos e Pés</div>
         <div class="desc" id="desc-09">Nutrição intensiva para as áreas mais ressecadas, ajudando a restaurar a barreira cutânea, melhorar a maciez e manter a pele hidratada por mais tempo.</div>
@@ -652,7 +716,7 @@
           <button class="product-more" onclick="document.getElementById('desc-09').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/kit-intimo.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/kit-intimo.jpg')">
         <span class="num">10</span>
         <div class="name">Kit Íntimo</div>
         <div class="desc" id="desc-10">Sabonete + Hidratante Íntimo. Cuidado diário formulado com probióticos, barbatimão, melaleuca, calêndula e camomila — respeita a fisiologia da região íntima e preserva a barreira natural da pele.</div>
@@ -664,7 +728,7 @@
           <button class="product-more" onclick="document.getElementById('desc-10').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
         </div>
       </div>
-      <div class="product-card" style="background-image:url('assets/produtos/escova-facial.jpg')">
+      <div class="product-card" style="background-image:url('../assets/produtos/escova-facial.jpg')">
         <span class="num">11</span>
         <div class="name">Escova Facial</div>
         <div class="desc" id="desc-11">Madeira rosé com cerdas naturais ultramacias — potencializa a absorção dos ativos e promove uma microestimulação suave. Design ergonômico que se adapta aos contornos do rosto.</div>
@@ -731,7 +795,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand">
-          <img src="assets/logo-mark-transparent.png" alt="" class="footer-logo">
+          <img src="../assets/logo-mark-transparent.png" alt="" class="footer-logo">
           <span class="footer-brand-name">Kauany Bellucco</span>
         </div>
         <span class="footer-tag">Atendimento presencial e online</span>
