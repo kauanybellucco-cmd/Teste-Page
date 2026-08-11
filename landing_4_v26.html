@@ -242,13 +242,15 @@
   .product-more{
     position:relative;
     display:inline-flex; align-items:center; justify-content:center;
-    width:38px; height:38px; flex-shrink:0;
+    padding:0 14px;
+    height:38px; flex-shrink:0;
     background:rgba(249,241,234,0.15);
     border:1px solid rgba(249,241,234,0.4);
     color:#fff;
-    font-size:16px; font-weight:600;
-    border-radius:50%;
+    font-size:11.5px; font-weight:600; letter-spacing:0.02em;
+    border-radius:100px;
     cursor:pointer;
+    white-space:nowrap;
     transition:background .2s;
   }
   .product-more:hover{background:rgba(249,241,234,0.3);}
@@ -271,7 +273,7 @@
 
   /* CAFE */
   .cafe-inner{
-    background:var(--gold); border-radius:6px; padding:64px; display:grid; grid-template-columns:0.85fr 1.15fr; gap:40px; align-items:center;
+    background:var(--gold); border-radius:6px; padding:64px; display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:center;
     color:var(--cream);
   }
   .cafe h2{font-size:clamp(26px,3vw,34px); color:var(--cream);}
@@ -287,21 +289,13 @@
   .cafe-video{
     position:relative;
     width:100%;
-    padding-top:56.25%;
+    max-height:340px;
     border-radius:12px;
     overflow:hidden;
   }
-  .cafe-video iframe{
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    border:0;
-  }
   .cafe-image{
-    position:absolute;
-    top:0; left:0;
     width:100%;
-    height:100%;
+    max-height:340px;
     object-fit:cover;
     border-radius:12px;
     display:block;
@@ -407,6 +401,7 @@
     .about-grid, .book-inner{grid-template-columns:1fr;}
     .cafe-inner{grid-template-columns:1fr; padding:40px 28px;}
     .cafe-side{border-left:none; border-top:1px solid rgba(249,241,234,0.4); padding-left:0; padding-top:24px;}
+    .cafe-video, .cafe-image{max-height:260px;}
     .wrap, nav{padding-left:24px; padding-right:24px;}
     .service-grid{grid-template-columns:repeat(1, 1fr); max-width:400px;}
     .product-grid{grid-template-columns:repeat(3, 1fr);}
@@ -477,7 +472,6 @@
     <p class="lead">Sua pele fala mais do que mostra o espelho. Meu trabalho é ouvir, entender e cuidar de você de forma personalizada.</p>
     <div class="hero-actions">
       <a href="#consulta" class="btn-primary">Conhecer a Consulta Integrativa</a>
-      <a href="#agendar" class="btn-ghost">Agendar pelo WhatsApp ↗</a>
     </div>
   </div>
 </section>
@@ -626,7 +620,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-01').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-01').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/escalda-pes.jpg')">
@@ -638,7 +632,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-02').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-02').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/creme-corporal.jpg')">
@@ -650,7 +644,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-03').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-03').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/lip-care.jpg')">
@@ -662,7 +656,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-04').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-04').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/cleansing-oil.jpg')">
@@ -674,7 +668,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-05').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-05').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/agua-dermatologica.jpg')">
@@ -686,7 +680,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-06').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-06').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/mascara-facial.jpg')">
@@ -698,7 +692,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Ver opções
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-07').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-07').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/blend-aromaterapia.jpg')">
@@ -710,7 +704,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Ver opções
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-08').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-08').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/creme-maos-pes.jpg')">
@@ -722,19 +716,19 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-09').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-09').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/kit-intimo.jpg')">
         <span class="num">10</span>
         <div class="name">Kit Íntimo</div>
-        <div class="desc" id="desc-10">Sabonete + Hidratante Íntimo. Cuidado diário formulado com probióticos, barbatimão, melaleuca, calêndula e camomila — respeita a fisiologia da região íntima e preserva a barreira natural da pele.</div>
+        <div class="desc" id="desc-10">Se você deseja mais conforto, proteção e hidratação para a sua região íntima, esse cuidado é para você! O Sabonete Íntimo limpa suavemente sem agredir a flora vaginal, equilibrando o pH e fortalecendo a proteção natural da região íntima. O Hidratante Íntimo atua restaurando a hidratação da pele delicada, prevenindo ressecamento, desconfortos e microfissuras.</div>
         <div class="product-cta-row">
           <a class="product-cta" href="https://wa.me/5516994053693?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Kit%20%C3%8Dntimo." target="_blank" rel="noopener" aria-label="Perguntar sobre Kit Íntimo no WhatsApp">
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-10').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-10').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
       <div class="product-card" style="background-image:url('assets/produtos/escova-facial.jpg')">
@@ -746,7 +740,7 @@
             <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg>
             Perguntar
           </a>
-          <button class="product-more" onclick="document.getElementById('desc-11').classList.toggle('expanded'); this.textContent = this.textContent === '+' ? '−' : '+';" aria-label="Ler descrição completa">+</button>
+          <button class="product-more" onclick="document.getElementById('desc-11').classList.toggle('expanded'); this.textContent = this.textContent === 'Ler +' ? 'Ler −' : 'Ler +';" aria-label="Ler descrição completa">Ler +</button>
         </div>
       </div>
     </div>
